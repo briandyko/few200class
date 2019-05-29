@@ -24,4 +24,8 @@ export class TodoListComponent {
     what.value = '';
     what.focus();
   }
+
+  clearCompleted() {
+    this.items = this.items.filter(item => item.completed === false);
+  }
 }
