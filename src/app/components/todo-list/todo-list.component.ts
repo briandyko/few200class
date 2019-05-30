@@ -11,22 +11,21 @@ import { Observable, Subscription } from 'rxjs';
 export class TodoListComponent implements OnInit, OnDestroy {
 
   items$: Observable<TodoListItem[]>;
-  items: TodoListItem[];
-  subscription: Subscription;
+  // items: TodoListItem[];
+  // subscription: Subscription;
   constructor(private service: TodoDataService) { }
 
   ngOnInit() {
     this.items$ = this.service.getTodoList();
 
-    this.subscription = this.items$.subscribe(tdl => {
-      console.log('Got a new todo list!', tdl);
-      this.items = tdl;
-    });
+    // this.subscription = this.items$.subscribe(tdl => {
+    //   console.log('Got a new todo list!', tdl);
+    //   this.items = tdl;
+    // });
   }
 
   ngOnDestroy() {
-    // this unsubscribes...when it's taken out of the DOM...like moving to Dashboard or Tip Calculator
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   markComplete(item: TodoListItem) {
